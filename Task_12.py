@@ -16,6 +16,7 @@ def printList(l):
     else:
         print(f"Для x = {x} и y = {y} не было найдено значений a и b")
 
+
 x, y = int(input("Введите значение x\n")), int(input("Введите значение y\n"))
 size = x + 1 if x > y else y + 1
 
@@ -29,5 +30,18 @@ size = x + 1 if x > y else y + 1
 # printList(array)
 
 # 2й способ
-a = [(a, b) for a in range(size) for b in range(size) if a+b==x and a*b==y]
-printList(a)
+# a = [(a, b) for a in range(size) for b in range(size) if a+b==x and a*b==y]
+# printList(a)
+
+# 3й способ (самый быстрый)
+array = set()
+if y == 0:
+    array.add((0, x))
+    array.add((x, 0))
+else:
+    for a in range(1, size):
+        t1, t2 = x - a, (y+a-1) // a
+        if t1 == t2:
+            array.add((t1, a))
+            array.add((a, t1))
+printList(array)
