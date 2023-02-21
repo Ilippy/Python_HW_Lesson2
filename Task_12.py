@@ -39,9 +39,9 @@ if y == 0:
     array.add((0, x))
     array.add((x, 0))
 else:
-    for a in range(1, size):
+    for a in range(1, size//2):
         t1, t2 = x - a, (y+a-1) // a
-        if t1 == t2:
+        if t1 == t2 and a + t1 == x and a * t1 == y:
             array.add((t1, a))
             array.add((a, t1))
 printList(array)
