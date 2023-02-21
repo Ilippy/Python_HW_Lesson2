@@ -35,13 +35,10 @@ size = x + 1 if x > y else y + 1
 
 # 3й способ (самый быстрый)
 array = set()
-if y == 0:
-    array.add((0, x))
-    array.add((x, 0))
-else:
-    for a in range(1, size//2):
-        b = x - a
-        if  a * b == y:
-            array.add((b, a))
-            array.add((a, b))
+
+for a in range(size//2):
+    b = x - a
+    if  a * b == y:
+        array.add((b, a))
+        array.add((a, b))
 printList(array)
