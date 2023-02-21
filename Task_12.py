@@ -40,8 +40,8 @@ if y == 0:
     array.add((x, 0))
 else:
     for a in range(1, size//2):
-        t1, t2 = x - a, (y+a-1) // a
-        if t1 == t2 and a + t1 == x and a * t1 == y:
-            array.add((t1, a))
-            array.add((a, t1))
+        b = x - a
+        if  a * b == y:
+            array.add((b, a))
+            array.add((a, b))
 printList(array)
